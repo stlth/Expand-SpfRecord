@@ -194,16 +194,19 @@ Process
 
         # SPF Warnings
         # 1 - Exceeds character length
-        if ($outputObject.SPFRecord.Length -gt 255){Write-Warning -Message "SPF record length is above maximum (255) character limit: $($outputObject.SPFRecord.Length)"}
-        if ($outputObject.Entry.Mechanism.Contains('Modifier'))
+        if ($outputObject.SPFRecordFound -eq $true)
         {
-            # 2 - Exceeds maximum modifiers
-            $redirectcount = $outputObject.Entry.Modifier.Where({$PSItem -eq 'Redirect'}).Count
-            if ($redirectcount -gt 1)
-            { Write-Warning -Message "SPF record contains more than 1 redirect: ($expcount). A SPF record must only have 1." }
-            $expcount = $outputObject.Entry.Modifier.Where({$PSItem -eq 'Explaination'}).Count
-            if ($expcount -gt 1)
-            { Write-Warning -Message "SPF record contains more than 1 exp: ($expcount). A SPF record must only have 1." }
+            if ($outputObject.SPFRecord.Length -gt 255){Write-Warning -Message "SPF record length is above maximum (255) character limit: $($outputObject.SPFRecord.Length)"}
+            if ($outputObject.Entry.Mechanism.Contains('Modifier'))
+            {
+                # 2 - Exceeds maximum modifiers
+                $redirectcount = $outputObject.Entry.Modifier.Where({$PSItem -eq 'Redirect'}).Count
+                if ($redirectcount -gt 1)
+                { Write-Warning -Message "SPF record contains more than 1 redirect: ($expcount). A SPF record must only have 1." }
+                $expcount = $outputObject.Entry.Modifier.Where({$PSItem -eq 'Explaination'}).Count
+                if ($expcount -gt 1)
+                { Write-Warning -Message "SPF record contains more than 1 exp: ($expcount). A SPF record must only have 1." }
+            }
         }
         # Write the original domain name to the pipeline
         Write-Output -InputObject $outputObject
