@@ -22,7 +22,7 @@
 .EXAMPLE
    PS> Expand-SpfRecord -DomainName 'example.com' -RecurseInclude
 .NOTES
-   Version:        1.0.0
+   Version:        0.9.0
    Author:         Cory Calahan
    Date:           2017-08-12
    Purpose/Change: Initial function development
