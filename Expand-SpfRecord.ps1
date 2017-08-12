@@ -10,7 +10,8 @@
 .PROJECTURI
     https://github.com/stlth/Expand-SPFRecord
 .ICONURI
-.EXTERNALMODULEDEPENDENCIES 
+.EXTERNALMODULEDEPENDENCIES
+#Requires -Modules 'DnsClient'
 .REQUIREDSCRIPTS 
 .EXTERNALSCRIPTDEPENDENCIES 
 .RELEASENOTES
@@ -29,7 +30,7 @@
 <#
 .PARAMETER DomainName
    The Internet facing domain name to look up a SPF record TXT for   
-.PARAMETER Title
+.PARAMETER RecurseInclude
     Recursively expand any 'include:' entries for their SPF information from the initial domain name
 #>
 
