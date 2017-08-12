@@ -1,4 +1,4 @@
-﻿<#PSScriptInfo
+<#PSScriptInfo
 .VERSION 0.9.0
 .GUID 16e3e002-a6d7-4130-b599-5dd23438d194
 .AUTHOR Cory Calahan
@@ -6,6 +6,7 @@
 .COPYRIGHT (C) Cory Calahan. All rights reserved.
 .TAGS SPF,record,DNS
 .LICENSEURI
+    https://github.com/stlth/Expand-SpfRecord/blob/master/LICENSE
 .PROJECTURI
     https://github.com/stlth/Expand-SPFRecord
 .ICONURI
