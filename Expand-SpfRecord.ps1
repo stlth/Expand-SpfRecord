@@ -167,6 +167,7 @@ Process
                         {
                             $entry.IsMechanism = $true
                             $entry.Mechanism = 'Exists'
+                            $entry.Data = $piece.Split(':')[-1]
                         }
                         'include:'
                         {
